@@ -4231,9 +4231,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SpoolWeight, Assembly-CSharp
-        m_MethodName: AddAmt
+      - m_Target: {fileID: 1848428357}
+        m_TargetAssemblyTypeName: SandwichCustomers, Assembly-CSharp
+        m_MethodName: SpawnBread
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

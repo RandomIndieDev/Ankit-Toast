@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpoolHolder : MonoBehaviour, IHolder
 {
@@ -24,10 +26,35 @@ public class SpoolHolder : MonoBehaviour, IHolder
     private List<SpoolHolder> activated = new List<SpoolHolder>();
 
     private float breadSpawnTick;
+    
+    public static event Action OnSpawnBreadClicked;
+
+    public static void SpawnBreadClicked()
+    {
+        OnSpawnBreadClicked?.Invoke();
+    }
+
+    void OnEnable()
+    {
+        OnSpawnBreadClicked += SpawnBreadMaybe;
+    }
+
+    void OnDisable()
+    {
+        OnSpawnBreadClicked -= SpawnBreadMaybe;
+    }
 
     public void Update()
     {
         if (CheckBreadSpawnTime())
+        {
+            SpawnBread();
+        }
+    }
+    
+    public void SpawnBreadMaybe()
+    {
+        if (Random.value <= .5f)
         {
             SpawnBread();
         }
@@ -50,6 +77,7 @@ public class SpoolHolder : MonoBehaviour, IHolder
 
     private void SpawnBread()
     {
+        if (currentlyHeldSpool == null) return;
         currentlyHeldSpool.SpawnBread();
     }
     

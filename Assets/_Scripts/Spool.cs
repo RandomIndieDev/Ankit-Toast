@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Lean.Common;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Spool : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class Spool : MonoBehaviour
 
     public int currentLevel;
     public int currentValue;
+
+
     
 
     public void Start()
@@ -64,6 +68,8 @@ public class Spool : MonoBehaviour
     {
         breadSpawner.SpawnBread();
     }
+
+
 
     public void LevelSpoolUp()
     {

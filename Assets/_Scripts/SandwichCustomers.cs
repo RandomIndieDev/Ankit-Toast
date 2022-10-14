@@ -125,6 +125,11 @@ public class SandwichCustomers : MonoBehaviour
 
 
     }
+
+    public void SpawnBread()
+    {
+        SpoolHolder.SpawnBreadClicked();
+    }
     
     
 }
